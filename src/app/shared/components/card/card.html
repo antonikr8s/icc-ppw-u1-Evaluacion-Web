@@ -1,1 +1,27 @@
-<p>card works!</p>
+
+
+<div class="card bg-base-100 shadow-md border border-base-200 hover:shadow-xl transition-shadow duration-300">
+  <figure class="px-4 pt-4">
+    <a [routerLink]="['/details', item().name.common]" 
+       [queryParams]="{ total: total() }" 
+       class="cursor-pointer w-full">
+      <img
+        [src]="item().flags.png"
+        [alt]="item().flags.alt || 'Bandera de ' + item().name.common"
+        class="rounded-xl h-32 w-full object-cover border border-base-300 hover:opacity-80 transition-opacity" />
+    </a>
+  </figure>
+  
+  <div class="card-body p-4">
+    <a [routerLink]="['/details', item().name.common]" 
+       [queryParams]="{ total: total() }" 
+       class="card-title text-lg hover:text-primary transition-colors cursor-pointer">
+      {{ item().name.common }}
+    </a>
+
+    <div class="text-sm text-base-content/80 mt-2 space-y-1">
+      <p><span class="font-semibold text-base-content">Nombre oficial:</span> {{ item().name.official }}</p>
+      <p><span class="font-semibold text-base-content">Capital:</span> {{ item().capital[0] || 'No registrada' }}  </p>
+    </div>
+  </div>
+</div>

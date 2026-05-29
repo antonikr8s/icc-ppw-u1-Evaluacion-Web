@@ -1,1 +1,19 @@
-<p>hero works!</p>
+<div class="bg-base-200/50 py-10 px-8 rounded-2xl mb-8 border border-base-300">
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-3 text-slate-800">{{ title() }}</h1>
+    
+    @if (isLoading()) {
+      <p class="text-base-content/60 font-medium text-lg">Cargando información...</p>
+    } @else if (hasError()) {
+      <p class="text-error font-medium text-lg">Error al cargar los datos.</p>
+    } @else if (total() !== null) {
+      <p class="text-base-content/80 text-lg font-medium flex items-center gap-2">
+        Total de registros: <span class="badge badge-primary badge-lg">{{ total() }}</span>
+      </p>
+    } @else {
+      <p class="text-warning-content bg-warning font-bold text-sm px-3 py-1 rounded inline-block">
+        ERROR EN TOTAL
+      </p>
+    }
+  </div>
+</div>
